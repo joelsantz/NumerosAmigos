@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Numeros Amigos </title>
+	<link rel="stylesheet" type="text/css" href="talled.css">
+	<script>
+function divisores(n) {
+	var a=1;
+	var b=0;
+	var l = new Array();
+	while(a<n) {
+		var h = n % a;
+		if(h == 0) {
+			l[b]=a;
+			b++;
+		}
+		a++;
+	}
+	return l;
+}
+
+function suma(L) {
+	var lg=L.length;
+	var a=0;
+	var sum=0;
+	while(a<lg) {
+		sum=sum+L[a];
+		a++;
+	}
+	return sum;
+}
+
+	
+
+function calcular() {
+var n1 = document.getElementById('n1').value;
+var n2 = document.getElementById('n2').value;
+
+L1 = divisores(n1);
+L2 = divisores(n2);
+s1 = suma(L1);
+s2 = suma(L2);
+
+
+if(s1==n2 && s2==n1) {
+	document.getElementById('resultado').innerHTML=("Los numeros son amigos.");
+} else {
+	document.getElementById('resultado').innerHTML=("Los numeros no son amigos.");
+}
+}
+
+
+</script>
+</head>
+<body>
+	
+	<h1 id="titulo">NUMEROS AMIGOS</h1>
+	<div id="back">
+		<div id="fondo">
+		
+		
+			<input type="number" placeholder="Numero 1" id="n1" class="input"></input>
+			<input type="number" placeholder="Numero 2" id="n2" class="input"></input>
+			
+			<p><button onclick="calcular()" id="boton">¿Amigos?</button></p>
+		
+		
+		</div>
+		<div>
+			<h2 id="resultado"></h2>
+		</div>
+	</div>	
+	<footer>
+		<p>Desarrollado por Felipe J. Santana </p>
+	</footer>	
+
+</body>
+</html>
